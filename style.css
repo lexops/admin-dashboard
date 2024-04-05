@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+div {
+  border: 1px solid cornflowerblue;
+}
+
+.container {
+  height: 100vh;
+  display: grid;
+  grid-template: 180px 1fr / 300px 1fr;
+}
+
+.sidebar {
+  grid-row: span 2;
+}
+
+.header {
+  grid-column: 2 / 4;
+}
+
+.main-content {
+  grid-column: 2 / 4;
+}
+
