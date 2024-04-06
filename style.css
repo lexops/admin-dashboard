@@ -1,28 +1,282 @@
+:root {
+  --blue: #1992D4;
+  --gray: #E2E8F0;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: sans-serif;
+  font-size: 16px;
+  list-style: none;
 }
 
-div {
-  border: 1px solid cornflowerblue;
-}
+/* div {
+  border: 1px dashed orange;
+} */
 
 .container {
   height: 100vh;
   display: grid;
-  grid-template: 180px 1fr / 300px 1fr;
+  grid-template: 180px 1fr / 300px auto;
 }
 
 .sidebar {
   grid-row: span 2;
+  background-color: var(--blue);
+  color: white;
+  font-weight: 700;
+  padding: 20px;
+
+
+  display: grid;
+  align-items: start;
+  grid-template-rows: repeat(3, min-content);
+  gap: 60px;
 }
+
+.sidebar .logo p {
+  font-size: 1.25rem;
+}
+
+.sidebar ul {
+  display: grid;
+  row-gap: 30px;
+}
+
 
 .header {
   grid-column: 2 / 4;
+  background-color: white;
+  position: sticky;
+  top: 0;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.header-top {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  grid-template-columns: 2fr 1fr;
+}
+
+.search-area,
+.user-info {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+}
+
+.search-area {
+  justify-content: start;
+  grid-template-columns: min-content 1fr;
+  column-gap: 25px;
+  padding: 0 45px;
+}
+
+#search-bar {
+  appearance: none;
+  background-color: var(--gray);
+  border-radius: 20px;
+  height: 32px;
+  padding: 10px;
+  border: none;
+}
+
+#search-bar:focus,
+#search-bar:active {
+  outline: 2px solid cornflowerblue;
+}
+
+.user-info {
+  justify-content: center;
+  grid-template-columns: repeat(min-content);
+  column-gap: 30px;
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+}
+
+.icon.small {
+  width: 20px;
+  height: 20px;
+}
+
+.icon.large {
+  width: 75px;
+  height: 75px;
+}
+
+.round {
+  border-radius: 50%;
+}
+
+.header-bottom {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 2fr 1fr;
+}
+
+.gretting-area,
+.user-actions {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+}
+
+.gretting-area {
+  grid-template: min-content max-content / repeat(2, max-content);
+  font-weight: 700;
+  padding: 20px 45px;
+  column-gap: 20px;
+}
+
+.gretting-area .gretting {
+  grid-column: span 2;
+  font-size: 0.8rem;
+  align-self: end;
+}
+
+.gretting-area .username {
+  align-self: start;
+  font-size: 1.2rem;
+}
+
+.gretting-area .icon {
+  grid-row: span 2;
+}
+
+.user-actions {
+  column-gap: 30px;
+  padding: 0 60px;
+}
+
+.user-actions button {
+  background-color: var(--blue);
+  color: white;
+  font-weight: 700;
+  border: none;
+  border-radius: 30px;
+  padding: 14px 35px;
 }
 
 .main-content {
   grid-column: 2 / 4;
+  background-color: var(--gray);
+
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr 300px;
+  column-gap: 20px;
 }
 
+.your-projects,
+.announcements,
+.trending {
+  margin-top: 36px;
+}
+
+.title {
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.your-projects {
+  padding-left: 20px;
+
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 25px;
+}
+
+.project {
+  background-color: white;
+  border-radius: 20px;
+  padding: 32px;
+  border-left: 8px solid orange;
+  height: 220px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+  display: grid;
+  grid-template-rows: max-content 1fr max-content;
+}
+
+.project .title {
+  margin-bottom: 5px;
+}
+
+.project .desc {
+  color: #636363;
+  margin-bottom: 5px;
+}
+
+.project-actions {
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 30px;
+  justify-content: end;
+  align-content: end;
+}
+
+.announcements ul,
+.trending ul {
+  background-color: white;
+  border-radius: 20px;
+  padding: 32px;
+  margin-right: 20px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.announcements li {
+  border-bottom: 1px solid #D2D2D2;
+  margin-bottom: 5px;
+}
+
+.announcements li:last-child {
+  border-bottom: none;
+}
+
+.announcements li .title {
+  margin-bottom: 5px;
+}
+
+.announcements .desc {
+  color: #636363;
+  padding-bottom: 5px;
+}
+
+
+.trending ul {
+  display: grid;
+  row-gap: 25px;
+}
+
+.trending li {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template: repeat(2, 1fr) / repeat(2, max-content);
+  column-gap: 18px;
+  align-items: center;
+}
+
+.trending li .icon {
+  grid-row: span 2;
+}
+
+.trending li p {
+  align-self: end;
+}
+
+.trending li .desc {
+  color: #636363;
+  align-self: start;
+}
